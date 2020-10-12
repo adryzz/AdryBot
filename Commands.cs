@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Discord;
+using System.Diagnostics;
 
 namespace AdryBotGUI
 {
@@ -57,11 +58,41 @@ namespace AdryBotGUI
                     await Context.Message.DeleteAsync();
                 }
                 await Context.Channel.SendMessageAsync(message);
+                var embed = new EmbedBuilder();
+                embed.WithColor(Color.Red);
             }
             else
             {
-                await Context.Channel.SendMessageAsync(":x:Insufficient Permissions:x:");
+                var embed = new EmbedBuilder();
+                embed.WithColor(Color.Red);
+                embed.WithTitle(":x:Insufficient Permissions:x:");
+                await Context.Channel.SendMessageAsync("", false, embed.Build());
             }
+        }
+
+        [Command("ping", RunMode = RunMode.Async)]
+        public async Task Ping()
+        {
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+            int latency = Context.Client.Latency;
+            long? ping = Utils.PingDNS();
+            string text;
+            watch.Stop();
+            if (!ping.HasValue)
+            {
+                text = $"DNS: null ms\nGateway: {latency} ms\nTotal Evaluation: {watch.ElapsedMilliseconds} ms";
+            }
+            else
+            {
+                text = $"DNS: {ping} ms\nGateway: {latency} ms\nTotal Evaluation: {watch.ElapsedMilliseconds} ms";
+            }
+            var embed = new EmbedBuilder();
+            embed.WithColor(Color.Green);
+            embed.WithTitle("Pong!");
+            embed.WithDescription(text);
+            embed.WithCurrentTimestamp();
+            await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
     }
 }

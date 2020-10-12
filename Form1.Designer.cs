@@ -73,10 +73,13 @@
             // 
             // listBox1
             // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 201);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(776, 225);
+            this.listBox1.Size = new System.Drawing.Size(776, 238);
             this.listBox1.TabIndex = 3;
             // 
             // label1
@@ -90,6 +93,7 @@
             // 
             // clearLogButton
             // 
+            this.clearLogButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.clearLogButton.Location = new System.Drawing.Point(727, 172);
             this.clearLogButton.Name = "clearLogButton";
             this.clearLogButton.Size = new System.Drawing.Size(61, 23);
@@ -121,6 +125,7 @@
             // 
             // saveLogButton
             // 
+            this.saveLogButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.saveLogButton.Location = new System.Drawing.Point(660, 172);
             this.saveLogButton.Name = "saveLogButton";
             this.saveLogButton.Size = new System.Drawing.Size(61, 23);
@@ -137,6 +142,7 @@
             // 
             // autoScrollCheckBox
             // 
+            this.autoScrollCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.autoScrollCheckBox.AutoSize = true;
             this.autoScrollCheckBox.Checked = true;
             this.autoScrollCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -162,6 +168,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Form1";
             this.Text = "AdryBotGUI";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

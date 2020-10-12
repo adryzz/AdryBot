@@ -28,6 +28,7 @@ namespace AdryBotGUI
             if (msg == null) { return; }
             var context = new SocketCommandContext(Client, msg);
             int argPos = 0;
+            await SimpleCommands.Execute(context, s.Content);
             if (msg.HasStringPrefix(Program.Form.Bot.Config.CmdPrefix, ref argPos) || msg.HasMentionPrefix(Client.CurrentUser, ref argPos))
             {
                 var result = await Service.ExecuteAsync(context, argPos, null);

@@ -21,7 +21,14 @@ namespace AdryBotGUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            if (System.IO.File.Exists("commands.xml"))
+            {
+                SimpleCommands.FromFile("commands.xml");
+            }
+            else
+            {
+                SimpleCommands.Save("commands.xml");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -84,7 +91,8 @@ namespace AdryBotGUI
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            CommandsEditor editor = new CommandsEditor();
+            editor.ShowDialog();
         }
 
         private void saveLogButton_Click(object sender, EventArgs e)
